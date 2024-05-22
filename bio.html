@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometron | Timeline</title>
+    <style>
+        @font-face {
+            font-family: 'Quantum';
+            src: url('css/Quantum.otf');
+        }
+
+        @font-face {
+            font-family: 'Unispace';
+            src: url('css/Unispace\ Bold.ttf');
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            background: radial-gradient(ellipse at center, #1b2735 0%, #090a0f 100%);
+            overflow: auto;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 100vh;
+            font-family: 'Unispace';
+            letter-spacing: 0.3em;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            top: 100vh;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            opacity: 0;
+            transition: opacity 5s;
+        }
+
+        .container.active {
+            opacity: 1;
+        }
+
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            /* background-color: #6D6D6D; */
+            /* border: 4px solid #FF9F55; */
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .container:hover {
+            transform: scale(1.1);
+            transition: transform 0.5s;
+        }
+
+        .container:hover .content {
+            max-height: 100%; /* or any other value that fits your needs */
+            overflow: auto;
+            transition: max-height 0.5s ease-in-out;
+        }
+
+        .content {
+            max-height: 50px; /* adjust this value as needed */
+            overflow: hidden;
+            /* the rest of your styles */
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+
+        .content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+        }
+
+        @media (max-width: 600px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .container::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+
+            .left::after, .right::after {
+                left: 15px;
+            }
+
+            .right {
+                left: 0%;
+            }
+
+
+        }
+        h1 {
+            text-shadow: 2px 2px 4px #000000;
+            font-family: 'Quantum';
+            font-size: 3em;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: #ffffff;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            padding-top: 50vh;
+        }
+        .scroll-downs {
+            position: fixed;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            font-size: 3rem;
+        }
+
+        .mousey {
+            display: block;
+            width: 2.5rem;
+            height: 4.5rem;
+            border: 2px solid white;
+            border-radius: 15px;
+            position: relative;
+            animation: mousey 1s infinite;
+            opacity: 0.75;
+            transition: opacity 2s ease-out;
+        }
+        .hide {
+            display: none;
+        }
+
+        .mousey::before {
+            content: "";
+            display: block;
+            width: 0.5rem;
+            height: 0.5rem;
+            background: white;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+
+        .scroller {
+            width: 0.25rem;
+            height: 1rem;
+            border-radius: 25%;
+            background-color: white;
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            animation: scroller 1s infinite;
+            transform: translateX(-50%);
+        }
+
+        @keyframes mousey {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes scroller {
+            0% {
+                top: 20%;
+            }
+            50% {
+                top: 60%;
+            }
+            100% {
+                top: 20%;
+            }
+        }
+        #stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1px;
+            height: 1px;
+            background: transparent;
+            box-shadow: 50vw 50vh #ffffff, 90vw 80vh #ffffff, 30vw 20vh #ffffff, 80vw 50vh #ffffff, 70vw 90vh #ffffff, 40vw 30vh #ffffff, 60vw 70vh #ffffff, 20vw 40vh #ffffff, 10vw 90vh #ffffff, 80vw 10vh #ffffff, 80vw 10vh #ffffff, 80vw 10vh #ffffff, 80vw 10vh #ffffff, 100vw 20vh #ffffff, 65vw 10vh #ffffff, 65vw 10vh #ffffff, 20vw 8vh #ffffff, 70vw 5vh #ffffff;
+            animation: animate 20s linear infinite;
+        }
+
+        #galaxies {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 2px;
+            background: transparent;
+            box-shadow: 
+                        60vw 50vh 2px 2px #ffffff, 
+                        30vw 20vh 4px 4px #ffffff, 
+                        80vw 10vh 3px 3px #ffffff, 
+                        40vw 20vh 20px 3px #ffffff,
+                        10vw 80vh 5px 5px #ffffff, 
+                        70vw 30vh 6px 6px #ffffff, 
+                        20vw 40vh 7px 7px #ffffff, 
+                        60vw 50vh 8px 8px #ffffff;
+            animation: animate 40s linear infinite;
+        }
+
+        #stars, #galaxies {
+            transform-origin: 50vw 50vh;
+        }
+        
+
+        @keyframes animate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(1turn);
+            }
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #00ff0d;
+            color: #000000;
+            box-shadow: 2px 2px 5px #000000;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-transform: uppercase;
+            font-family: 'Unispace';
+            font-size: 1.5em;
+            width: 300px;
+            height: 80px;
+            letter-spacing: 0.3em;
+        }
+
+         button:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            } else {
+                entry.target.classList.remove('active');
+            }
+        });
+            }, {
+                rootMargin: '0px',
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.container').forEach(block => {
+                observer.observe(block);
+            });
+
+            window.addEventListener('scroll', () => {
+                const mousey = document.querySelector('.mousey');
+                mousey.classList.add('hide');
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Welcome to Geometron's timeline</h1>
+    <div id="stars"></div>
+    <div id="galaxies"></div>
+    <div class="scroll-downs">
+        <div class="mousey">
+            <div class="scroller"></div>
+        </div>
+    </div>
+    <div class="timeline">
+        <div class="container left">
+            <div class="content">
+                <h2>3040</h2>
+                <p><b>Birth of Geometron</b><br><br>In the year 3040, in a futuristic city, a brilliant mathematician and engineer, Dr. Alan Radius, develops advanced geometric technology. During an experiment gone awry, he merges with the technology, becoming Geometron, a guardian with the power to manipulate shapes and forms.</p>
+            </div>
+        </div>
+        <div class="container right">
+            <div class="content">
+                <h2>3043</h2>
+                <p><b>Discovery of Powers</b> <br><br> Geometron discovers his ability to control geometric shapes and harness their energy. He begins to use his powers to help people and stop minor crimes in the city.</p>
+            </div>
+        </div>
+        <div class="container left">
+            <div class="content">
+                <h2>3047</h2>
+                <p><b>Introduction of March</b> <br><br>Geometron’s arch-enemy, March, emerges. March is a former colleague of Dr. Radius who has mastered the dark side of geometric technology. March uses this technology for personal gain and chaos, seeking to overthrow Geometron and dominate the city.</p>
+            </div>
+        </div>
+        <div class="container right">
+            <div class="content">
+                <h2>3048</h2>
+                <p>Geometron trains for a long time on random planets, preparing himself to protect the people of his city from any bad force!</p>
+            </div>
+        </div>
+        <div class="container left">
+            <div class="content">
+                <h2>3050</h2>
+                <p><b>Defeat of March</b><br><br>After a long and intense battle, Geometron finally manages to defeat March and restore peace to the city. He uses his geometric technology to repair the damage caused by March and is hailed as a hero by the city's inhabitants.</p>
+            </div>
+        </div>
+        <div class="container right">
+            <div class="content">
+                <h2>3055</h2>
+                <p><b>Creation of the Geometric Academy</b><br><br>Geometron establishes the Geometric Academy to train a new generation of guardians. The academy attracts students from all over the city who wish to learn about geometric technology and follow in Geometron's footsteps.</p>
+            </div>
+        </div>
+        <div class="container left">
+            <div class="content">
+                <h2>3060</h2>
+                <p><b>Retirement</b><br><br>After two decades of protecting the city, Geometron decides to retire and focus on teaching at the Geometric Academy. His legacy lives on in the students he has trained and the peace he has brought to the city.</p>
+            </div>
+        </div>
+    </div>
+    <div id="button" style="display: flex; justify-content: center;">
+        <button onclick="location.href='index.html'">Go Back to Menu</button>
+    </div>
+</body>
+</html>

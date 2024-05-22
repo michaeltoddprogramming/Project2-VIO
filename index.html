@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUANTUM CONFLICT</title>
+    <style>
+        @font-face {
+            font-family: 'Quantum';
+            src: url('css/Quantum.otf');
+        }
+
+        @font-face {
+            font-family: 'Unispace';
+            src: url('css/Unispace\ Bold.ttf');
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            height: 100vh;
+            margin: 0;
+            background: radial-gradient(ellipse at center, #1b2735 0%, #090a0f 100%);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+        }
+
+        h1 {
+            text-shadow: 2px 2px 4px #000000;
+            font-family: 'Quantum';
+            font-size: 6em;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #00ff0d;
+            color: #000000;
+            box-shadow: 2px 2px 5px #000000;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-transform: uppercase;
+            font-family: 'Unispace';
+            font-size: 1.5em;
+            width: 300px;
+            height: 80px;
+            letter-spacing: 0.3em;
+        }
+
+        button:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        #stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1px;
+            height: 1px;
+            background: transparent;
+            box-shadow: 50vw 50vh #ffffff, 90vw 80vh #ffffff, 30vw 20vh #ffffff, 80vw 50vh #ffffff, 70vw 90vh #ffffff, 40vw 30vh #ffffff, 60vw 70vh #ffffff, 20vw 40vh #ffffff, 10vw 90vh #ffffff, 80vw 10vh #ffffff, 80vw 10vh #ffffff, 80vw 10vh #ffffff, 80vw 10vh #ffffff, 100vw 20vh #ffffff, 65vw 10vh #ffffff, 65vw 10vh #ffffff, 20vw 8vh #ffffff, 70vw 5vh #ffffff;
+            animation: animate 20s linear infinite;
+        }
+
+        #galaxies {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 2px;
+            background: transparent;
+            box-shadow: 
+                        60vw 50vh 2px 2px #ffffff, 
+                        30vw 20vh 4px 4px #ffffff, 
+                        80vw 10vh 3px 3px #ffffff, 
+                        40vw 20vh 20px 3px #ffffff,
+                        10vw 80vh 5px 5px #ffffff, 
+                        70vw 30vh 6px 6px #ffffff, 
+                        20vw 40vh 7px 7px #ffffff, 
+                        60vw 50vh 8px 8px #ffffff;
+            animation: animate 40s linear infinite;
+        }
+
+        #stars, #galaxies {
+            transform-origin: 50vw 50vh;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(1turn);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Quantum Conflict</h1>
+    <div id="stars"></div>
+    <div id="galaxies"></div>
+    <button onclick="window.location.href = 'bio.html';">Timeline</button>
+    <button onclick="window.location.href = 'stats.html';">Stats</button>
+    <button onclick="window.location.href = 'abillities.html';">Abillties</button>
+    <button onclick="window.location.href = 'author.html';">About the Author</button> 
+</body>
+</html>

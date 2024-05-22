@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @font-face {
+            font-family: 'Quantum';
+            src: url('css/Quantum.otf');
+        }
+
+        @font-face {
+            font-family: 'Unispace';
+            src: url('css/Unispace\ Bold.ttf');
+        }
+        body, html {
+            height: 100%;
+            margin: 0;
+            font: 400 20px/1.8 "Georgia", serif;
+            color: #555;
+            scroll-behavior: smooth;
+        }
+
+        .bgimg-1, .bgimg-2, .bgimg-3 {
+            position: relative;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            animation: bgAnimation 40s infinite alternate;
+        }
+
+        .bgimg-1 {
+            background-image: url("img/snorkle.jpg");
+            min-height: 100%;
+        }
+
+        .bgimg-2 {
+            background-image: url("img/meAgain.jpeg");
+            min-height: 800px;
+        }
+
+        .bgimg-3 {
+            background-image: url("img/memeAgain.jpeg");
+            min-height: 800px;
+        }
+
+        .caption {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            text-align: center;
+            color: #000;
+            transition: all 0.5s ease;
+        }
+
+        .caption:hover {
+            transform: scale(1.1);
+        }
+
+        .caption span.border {
+            background: #00ff0d;
+            color: #000;
+            padding: 18px;
+            font-size: 25px;
+            letter-spacing: 10px;
+            /* text-shadow: 2px 2px #000; */
+            font-family: 'Unispace';
+        }
+button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #00ff0d;
+            color: #000000;
+            box-shadow: 2px 2px 5px #000000;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-transform: uppercase;
+            font-family: 'Unispace';
+            font-size: 1.5em;
+            width: 300px;
+            height: 80px;
+            letter-spacing: 0.3em;
+        }
+
+        button:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        
+
+        .content {
+            background-color: #fff;
+            color: #555;
+            text-align: center;
+            padding: 50px 80px;
+            text-align: justify;
+            box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.2);
+            opacity: 0;
+            animation: fadeIn 2s ease-in 1 forwards;
+        }
+
+        .content h3 {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity:0; }
+            100% { opacity:1; }
+        }
+
+        @keyframes bgAnimation {
+            0% { background-position: left bottom; }
+            100% { background-position: right top; }
+        }
+
+        #stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1px;
+            height: 1px;
+            background: transparent;
+            box-shadow: 50vw 50vh #ffffff, 90vw 80vh #ffffff, 30vw 20vh #ffffff, 80vw 50vh #ffffff, 70vw 90vh #ffffff, 40vw 30vh #ffffff, 60vw 70vh #ffffff, 20vw 40vh #ffffff, 10vw 90vh #ffffff, 80vw 10vh #ffffff, 80vw 10vh #ffffff, 80vw 10vh #ffffff, 80vw 10vh #ffffff, 100vw 20vh #ffffff, 65vw 10vh #ffffff, 65vw 10vh #ffffff, 20vw 8vh #ffffff, 70vw 5vh #ffffff;
+            animation: animate 20s linear infinite;
+        }
+
+        #galaxies {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 2px;
+            background: transparent;
+            box-shadow: 
+                        60vw 50vh 2px 2px #ffffff, 
+                        30vw 20vh 4px 4px #ffffff, 
+                        80vw 10vh 3px 3px #ffffff, 
+                        40vw 20vh 20px 3px #ffffff,
+                        10vw 80vh 5px 5px #ffffff, 
+                        70vw 30vh 6px 6px #ffffff, 
+                        20vw 40vh 7px 7px #ffffff, 
+                        60vw 50vh 8px 8px #ffffff;
+            animation: animate 40s linear infinite;
+        }
+
+        #stars, #galaxies {
+            transform-origin: 50vw 50vh;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(1turn);
+            }
+        }
+
+        
+    </style>
+</head>
+<body>
+    
+    <div class="bgimg-1">
+        <div id="stars"></div>
+        <div id="galaxies"></div>
+        <div class="caption">
+            <span class="border">About the Author</span>
+        </div>
+        <div class="caption" style="top: 60%;">
+            <span class="border">Michael Todd</span>
+        </div>
+    </div>
+
+<div class="content">
+    <h3>I am a lively person who strives to be the best at everything and loves adventourous side quests!</h3>
+</div>
+
+<div class="bgimg-2">
+    <div id="stars"></div>
+        <div id="galaxies"></div>
+    <div class="caption">
+        <span class="border">More about the me</span>
+    </div>
+</div>
+
+<div class="content">
+    <h3>I grew up living on a farm, but still found my passion to be in Software Development</h3>
+</div>
+
+<div class="bgimg-3">
+    <div id="stars"></div>
+        <div id="galaxies"></div>
+    <div class="caption">
+        <span class="border">Even more about the me</span>
+    </div>
+</div>
+
+<div class="content">
+    <h3>I enjoy video games and beers, and love the aesthetic and clean side of art</h3>
+</div>
+<div id="button" style="display: flex; justify-content: center;">
+        <button onclick="location.href='index.html'">Go Back to Menu</button>
+    </div>
+</body>
+</html>

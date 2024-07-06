@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QUANTUM CONFLICT</title>
+    <script src="js/initmusic.js"></script>
+    <script src="js/music.js"></script>
 </head>
 <style>
     @font-face {
@@ -17,10 +19,13 @@
     }
     html {
         scroll-behavior: smooth;
+        height: auto;
+        overflow: auto;
+        font-family: 'Quantum';
     }
     body {
-        height: 100vh;
-        margin: 0;
+        /* height: 100vh; */
+        /* margin: 0; */
         background: radial-gradient(ellipse at center, #1b2735 0%, #090a0f 100%);
         overflow: hidden;
         display: flex;
@@ -147,8 +152,8 @@
 }
 
 .stat:hover {
-    transform: scale(1.05); /* Slightly enlarges the element */
-    background-color: #333333; /* Changes background color */
+    transform: scale(1.05);
+    background-color: #333333; 
     border: 2px solid #ccc;
 }
 
@@ -211,8 +216,22 @@
 p {
     font-family: "Quantum";
 }
+
+h2 {
+    font-family: 'Quantum';
+    font-size: 2em;
+}
+h3 {
+    font-family: 'Quantum';
+    font-size: 2em;
+}
+
+#worldDetails {
+    margin-bottom: 100px;
+}
 </style>
-<body>
+<body class="fade-in">
+    <audio id="portalClickSound" src="audio/portalClick.mp3" preload="auto"></audio>
     <h1>Stats</h1>
     <p>Hover over the stats...</p>
     <div id="stars"></div>
@@ -271,10 +290,65 @@ p {
                 </div>
                 <span class="tooltip">Powerful magic from ancient relics.</span>
             </div>
-            <!-- Add other stats with tooltips as needed -->
         </div>
     </div>
+    <section id="characterInfo">
+        <br>
+    <h2>Character Information</h2>
+    <br>
+    <div id="bio">
+        <h3>Bio</h3>
+        <p>Name -> Geometron Peter Square</p>
+        <p>Occupation - > Super Hero</p>
+        <p>Strengths -> Rizz</p>
+        <p>Weaknesses/Flaws -> Baby Gronk</p>
+    </div>
+    <br>
+    <div id="abilities">
+        <h3>Abilities and/or Weapons</h3>
+        <p>Primary Ability -> Telekinesis</p>
+        <p>Secondary Ability -> Rizz</p>
+        <p>Weapon(s) ->  InvoSqword, Block Gun</p>
+    </div>
+    <br>
+    <div id="worldDetails">
+        <h3>World Details</h3>
+        <p>World Name -> SPOGLOG</p>
+        <p>Year/Period -> 3000 B.C</p>
+        <p>Environment -> Geometric</p>
+        <p>Inhabitants -> Trianlogs, SquareLigs, LigLogs</p>
+        <p>Technology/Magic -> Futuristic, High-Level Magic</p>
+    </div>
+    <br>
+    <section id="greatestEnemies">
+        <h3>Greatest Enemies</h3>
+        <div class="enemy">
+            <h3>Circleon the Round Menace</h3>
+            <p>Strengths: Perfect Symmetry, Hypnotic Patterns</p>
+            <p>Weaknesses: Sharp Angles, Chaos Theory</p>
+            <p>Notable Battles: Battle of the Infinite Edges, Siege of Squaretopia</p>
+        </div>
+        <br>
+        <div class="enemy">
+            <h3>Pythagoras the Traitor</h3>
+            <p>Strengths: Master of Trigonometry, Stealth Tactics</p>
+            <p>Weaknesses: Overconfidence, Fear of the Unknown</p>
+            <p>Notable Battles: Duel at the Vertex, The Great Divide</p>
+        </div>
+        <br>
+        <div class="enemy">
+            <h3>Hexa the Witch of Dimensions</h3>
+            <p>Strengths: Dimensional Magic, Shape Shifting</p>
+            <p>Weaknesses: Bound by Geometric Laws, Limited Power in Non-Euclidean Spaces</p>
+            <p>Notable Battles: Clash in the Fractal Forest, The Warped War</p>
+        </div>
+    </section>
+    <br>
+    <br>
+    <br>
+</section>
     <div id="button" style="display: flex; justify-content: center; margin-bottom: 80px;">
+        <audio id="portalClickSound" src="portalClick.mp3" preload="auto"></audio>
         <button onclick="location.href='index.html'">Go Back to Menu</button>
     </div>
 </body>

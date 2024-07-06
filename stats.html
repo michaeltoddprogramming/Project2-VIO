@@ -3,9 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>QUANTUM CONFLICT</title>
 </head>
+<style>
+    @font-face {
+    font-family: 'Quantum';
+    src: url('css/Quantum.otf');
+    }
+
+    @font-face {
+    font-family: 'Unispace';
+    src: url('css/Unispace\ Bold.ttf');
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        height: 100vh;
+        margin: 0;
+        background: radial-gradient(ellipse at center, #1b2735 0%, #090a0f 100%);
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: #ffffff;
+        font-family: 'Arial', sans-serif;
+    }
+
+    h1 {
+        text-shadow: 2px 2px 4px #000000;
+        font-family: 'Quantum';
+        font-size: 6em;
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+    }
+
+    button {
+        margin: 10px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background: #00ff0d;
+        color: #000000;
+        box-shadow: 2px 2px 5px #000000;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        text-transform: uppercase;
+        font-family: 'Unispace';
+        font-size: 1.5em;
+        width: 300px;
+        height: 80px;
+        letter-spacing: 0.3em;
+    }
+
+    button:hover {
+        background: #ffffff;
+        color: #000000;
+    }
+
+    #stars {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1px;
+        height: 1px;
+        background: transparent;
+        box-shadow: 50vw 50vh #ffffff, 90vw 80vh #ffffff, 30vw 20vh #ffffff, 80vw 50vh #ffffff, 70vw 90vh #ffffff, 40vw 30vh #ffffff, 60vw 70vh #ffffff, 20vw 40vh #ffffff, 10vw 90vh #ffffff, 80vw 10vh #ffffff, 80vw 10vh #ffffff, 80vw 10vh #ffffff, 80vw 10vh #ffffff, 100vw 20vh #ffffff, 65vw 10vh #ffffff, 65vw 10vh #ffffff, 20vw 8vh #ffffff, 70vw 5vh #ffffff;
+        animation: animate 20s linear infinite;
+    }
+
+    #galaxies {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2px;
+        height: 2px;
+        background: transparent;
+        box-shadow: 
+        60vw 50vh 2px 2px #ffffff, 
+        30vw 20vh 4px 4px #ffffff, 
+        80vw 10vh 3px 3px #ffffff, 
+        40vw 20vh 20px 3px #ffffff,
+        10vw 80vh 5px 5px #ffffff, 
+        70vw 30vh 6px 6px #ffffff, 
+        20vw 40vh 7px 7px #ffffff, 
+        60vw 50vh 8px 8px #ffffff;
+        animation: animate 40s linear infinite;
+    }
+
+    #stars, #galaxies {
+        transform-origin: 50vw 50vh;
+    }
+
+    @keyframes animate {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(1turn);
+        }
+    }
+    .character-container {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.character-image img {
+    width: 600px;
+    height: auto;
+    margin-right: 20px;
+}
+.character-stats {
+    font-family: 'Quantum';
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    font-family: Arial, sans-serif;
+}
+.stat {
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+    cursor: pointer; 
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin: 10px 0;
+    font-size: 1em;
+    padding: 10px;
+    border-radius: 5px;
+}
+.stat-icon {
+    margin-right: 5px;
+    white-space: nowrap;
+    font-family: 'Quantum';
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    display: inline-block;
+    animation: moveUpDown 2s ease-in-out infinite;
+    margin: 10px;
+}
+
+.stat:hover {
+    transform: scale(1.05); /* Slightly enlarges the element */
+    background-color: #333333; /* Changes background color */
+    border: 2px solid #ccc;
+}
+
+@keyframes moveUpDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.stat-emojis {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    display: block;
+    animation: moveUpDown 2s ease-in-out infinite;
+}
+.stat-emojis span {
+    display: inline-block;
+    animation: moveUpDown 2s ease-in-out infinite;
+}
+.stat-emojis span:nth-child(1) { animation-delay: 0s; }
+.stat-emojis span:nth-child(2) { animation-delay: 0.1s; }
+.stat-emojis span:nth-child(3) { animation-delay: 0.2s; }
+.stat-emojis span:nth-child(4) { animation-delay: 0.3s; }
+.stat-emojis span:nth-child(5) { animation-delay: 0.4s; }
+.stat-emojis span:nth-child(6) { animation-delay: 0.5s; }
+.stat-emojis span:nth-child(7) { animation-delay: 0.6s; }
+.stat-emojis span:nth-child(8) { animation-delay: 0.7s; }
+.stat-emojis span:nth-child(9) { animation-delay: 0.8s; }
+.stat-emojis span:nth-child(10) { animation-delay: 0.9s; }
+
+
+
+
+.tooltip {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    padding: 20px;
+}
+.stat:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+p {
+    font-family: "Quantum";
+}
+</style>
 <body>
-    
+    <h1>Stats</h1>
+    <p>Hover over the stats...</p>
+    <div id="stars"></div>
+    <div id="galaxies"></div>
+    <div class="character-container">
+        <div class="character-image">
+            <img src="img/char.png" alt="Alien Character">
+        </div>
+        <div class="character-stats">
+            <div class="stat">
+                <span class="stat-icon">POWER</span>
+                <div class="stat-emojis">
+                    <span>🌟</span><span>🌟</span><span>🌟</span><span>🌟</span><span>🌟</span><span>🌟</span>
+                </div>
+                <span class="tooltip">Good power due to his sword.</span>
+            </div>
+            <div class="stat">
+                <span class="stat-icon">SPEED</span>
+                <div class="stat-emojis">
+                    <span>⚡</span><span>⚡</span><span>⚡</span><span>⚡</span><span>⚡</span>
+                </div>
+                <span class="tooltip">Enhanced speed from agility training.</span>
+            </div>
+            <div class="stat">
+                <span class="stat-icon">HEALTH</span>
+                <div class="stat-emojis">
+                    <span>❤️</span><span>❤️</span><span>❤️</span><span>❤️</span><span>❤️</span><span>❤️</span><span>❤️</span>
+                </div>
+                <span class="tooltip">Robust health from a balanced diet.</span>
+            </div>
+            <div class="stat">
+                <span class="stat-icon">DEFENSE</span>
+                <div class="stat-emojis">
+                    <span>🛡️</span><span>🛡️</span><span>🛡️</span><span>🛡️</span>
+                </div>
+                <span class="tooltip">Strong defense due to magical armor.</span>
+            </div>
+            <div class="stat">
+                <span class="stat-icon">INTELLIGENCE</span>
+                <div class="stat-emojis">
+                    <span>🧠</span><span>🧠</span><span>🧠</span><span>🧠</span><span>🧠</span>
+                </div>
+                <span class="tooltip">High intelligence from years of study.</span>
+            </div>
+            <div class="stat">
+                <span class="stat-icon">CHARISMA</span>
+                <div class="stat-emojis">
+                    <span>💬</span><span>💬</span><span>💬</span><span>💬</span>
+                </div>
+                <span class="tooltip">Charming charisma to rally allies.</span>
+            </div>
+            <div class="stat">
+                <span class="stat-icon">MAGIC</span>
+                <div class="stat-emojis">
+                    <span>✨</span><span>✨</span><span>✨</span><span>✨</span><span>✨</span><span>✨</span>
+                </div>
+                <span class="tooltip">Powerful magic from ancient relics.</span>
+            </div>
+            <!-- Add other stats with tooltips as needed -->
+        </div>
+    </div>
+    <div id="button" style="display: flex; justify-content: center; margin-bottom: 80px;">
+        <button onclick="location.href='index.html'">Go Back to Menu</button>
+    </div>
 </body>
 </html>
